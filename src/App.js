@@ -1,4 +1,4 @@
-import ExpenseItem from './components/ExpenseItem';
+import ExpenseItems from './components/ExpenseItems';
 import './App.css';
 
 function App() {
@@ -19,39 +19,20 @@ function App() {
       id: 3,
       title: 'New Desk (Windows)', 
       price: 200.00, 
-      date: new Date(2020, 13, 2),
+      date: new Date(2020, 11, 2),
     },
     {
       id: 4,
       title: 'Luiza', 
       price: 99999.99, 
-      date: new Date(2021, 13, 22),
+      date: new Date(2021, 11, 22),
     },
   ];
 
   return (
     <div className="App">
-      <h2>Hello World! Expenses!</h2>
-      <ExpenseItem 
-        title={expenses[0].title}
-        price={expenses[0].price}
-        date={expenses[0].date}
-      />
-      <ExpenseItem
-        title={expenses[1].title}
-        price={expenses[1].price}
-        date={expenses[1].date}
-      />
-      <ExpenseItem
-        title={expenses[2].title}
-        price={expenses[2].price}
-        date={expenses[2].date}
-      />
-      <ExpenseItem
-        title={expenses[3].title}
-        price={expenses[3].price}
-        date={expenses[3].date}
-      />
+      <h2>Some expenses for your</h2>
+      <ExpenseItems expenses={expenses} />
     </div>
   );
 }
