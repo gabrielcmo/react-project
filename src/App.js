@@ -1,7 +1,12 @@
-import ExpenseItems from './components/ExpenseItems';
+// import { useState } from 'react';
+
+import Card from './Components/Card';
+import ExpenseItem from './Components/ExpenseItem';
+import NewExpense from './Components/NewExpense';
+import ExpensesFilter from './Components/ExpensesFilter';
 import './App.css';
 
-function App() {
+const App = () => {
   const expenses = [
     {
       id: 1,
@@ -29,10 +34,30 @@ function App() {
     },
   ];
 
+  const addExpenseHandler = (expense) => {
+    console.log(expense);
+  };
+
+  const selectFilterHandler = (selectedYear) => {
+    console.log(selectedYear);
+  };
+
   return (
     <div className="App">
-      <h2>Some expenses for your</h2>
-      <ExpenseItems expenses={expenses} />
+      <h1>React Udemy Course</h1>
+      <NewExpense onAddExpense={addExpenseHandler}/>
+      <Card>
+        <ExpensesFilter onSelectFilter={selectFilterHandler}/>
+        {expenses.map((expense) => {
+            return (
+              <ExpenseItem
+                title={expense.title}
+                price={expense.price}
+                date={expense.date}
+              />
+            );
+          })}
+      </Card>
     </div>
   );
 }
